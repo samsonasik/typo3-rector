@@ -9,10 +9,10 @@ use PhpParser\Node\Expr;
 use PhpParser\Node\Expr\Array_;
 use PhpParser\Node\Scalar\Int_;
 use PhpParser\Node\Scalar\String_;
+use Rector\RuleDoc\CodeSample\CodeSample;
+use Rector\RuleDoc\Contract\DocumentedRuleInterface;
+use Rector\RuleDoc\RuleDefinition;
 use Ssch\TYPO3Rector\Rector\AbstractTcaRector;
-use Symplify\RuleDocGenerator\Contract\DocumentedRuleInterface;
-use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
-use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
 
 /**
  * @changelog https://review.typo3.org/c/Packages/TYPO3.CMS/+/72056

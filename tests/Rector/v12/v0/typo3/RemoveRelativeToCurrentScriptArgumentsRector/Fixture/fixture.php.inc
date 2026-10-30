@@ -3,7 +3,6 @@
 namespace Ssch\TYPO3Rector\Tests\Rector\v12\v0\typo3\RemoveRelativeToCurrentScriptArgumentsRector\Fixture;
 
 use Ssch\TYPO3Rector\Tests\Rector\v12\v0\typo3\RemoveRelativeToCurrentScriptArgumentsRector\Source\TestFileRendering;
-use TYPO3\CMS\Backend\Backend\Avatar\Image;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\Rendering\AudioTagRenderer;
 use TYPO3\CMS\Core\Resource\Rendering\VideoTagRenderer;
@@ -33,11 +32,6 @@ $foo = $vimeoRenderer->render($file, $width, $height, $options, $relative);
 $youtubeRenderer = GeneralUtility::makeInstance(YoutubeRenderer::class);
 $foo = $youtubeRenderer->render($file, $width, $height, $options, $relative);
 
-
-$image = GeneralUtility::makeInstance(Image::class);
-$url = $image->getUrl(true);
-$urlTwo = $image->getUrl();
-
 ?>
 -----
 <?php
@@ -45,7 +39,6 @@ $urlTwo = $image->getUrl();
 namespace Ssch\TYPO3Rector\Tests\Rector\v12\v0\typo3\RemoveRelativeToCurrentScriptArgumentsRector\Fixture;
 
 use Ssch\TYPO3Rector\Tests\Rector\v12\v0\typo3\RemoveRelativeToCurrentScriptArgumentsRector\Source\TestFileRendering;
-use TYPO3\CMS\Backend\Backend\Avatar\Image;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\Rendering\AudioTagRenderer;
 use TYPO3\CMS\Core\Resource\Rendering\VideoTagRenderer;
@@ -74,10 +67,5 @@ $vimeoRenderer = GeneralUtility::makeInstance(VimeoRenderer::class);
 $foo = $vimeoRenderer->render($file, $width, $height, $options);
 $youtubeRenderer = GeneralUtility::makeInstance(YoutubeRenderer::class);
 $foo = $youtubeRenderer->render($file, $width, $height, $options);
-
-
-$image = GeneralUtility::makeInstance(Image::class);
-$url = $image->getUrl();
-$urlTwo = $image->getUrl();
 
 ?>

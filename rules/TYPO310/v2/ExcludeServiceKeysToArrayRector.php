@@ -11,9 +11,9 @@ use PhpParser\Node\Scalar\String_;
 use PHPStan\Type\ObjectType;
 use Rector\NodeTypeResolver\TypeAnalyzer\ArrayTypeAnalyzer;
 use Rector\Rector\AbstractRector;
-use Symplify\RuleDocGenerator\Contract\DocumentedRuleInterface;
-use Symplify\RuleDocGenerator\ValueObject\CodeSample\CodeSample;
-use Symplify\RuleDocGenerator\ValueObject\RuleDefinition;
+use Rector\RuleDoc\CodeSample\CodeSample;
+use Rector\RuleDoc\Contract\DocumentedRuleInterface;
+use Rector\RuleDoc\RuleDefinition;
 
 /**
  * @changelog https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/10.2/Deprecation-89579-ServiceChainsRequireAnArrayForExcludedServiceKeys.html
@@ -59,6 +59,14 @@ final class ExcludeServiceKeysToArrayRector extends AbstractRector implements Do
 
         $excludeServiceKeys = $arguments[2];
         if ($this->arrayTypeAnalyzer->isArrayType($excludeServiceKeys->value)) {
+            return null;
+        }
+
+        // already migrated
+        if ($excludeServiceKeys->value instanceof StaticCall && $this->isName(
+            $excludeServiceKeys->value->name,
+            'trimExplode'
+        )) {
             return null;
         }
 
